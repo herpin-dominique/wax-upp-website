@@ -1,8 +1,5 @@
 <script>
   import { merch } from '$lib/data.js';
-  import TshirtMockup   from '$lib/components/TshirtMockup.svelte';
-  import ToteBagMockup  from '$lib/components/ToteBagMockup.svelte';
-  import CasquetteMockup from '$lib/components/CasquetteMockup.svelte';
 </script>
 
 <section id="shop">
@@ -21,14 +18,9 @@
           <!-- Visuel produit -->
           <div class="visual">
             {#if item.video}
-              <video
-                src={item.video}
-                autoplay
-                muted
-                loop
-                playsinline
-                class="product-video"
-              ></video>
+              <video autoplay muted loop playsinline class="product-video">
+                <source src={item.video} type="video/mp4" />
+              </video>
             {:else if item.image}
               <img src={item.image} alt={item.name} class="product-photo" />
             {:else}
