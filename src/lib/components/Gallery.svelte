@@ -21,13 +21,13 @@
         <div class="overlay"><span>Héloïse · Chant</span></div>
       </div>
 
-      <div class="photo" aria-label="Concert 1">
-        <img src="/photos/concert-1.jpg" alt="WAX UPP en concert" style="object-position: center top;" />
+      <div class="photo contain" aria-label="Concert 1">
+        <img src="/photos/concert-1.jpg" alt="WAX UPP en concert" />
         <div class="overlay"><span>En concert</span></div>
       </div>
 
-      <div class="photo" aria-label="François">
-        <img src="/photos/francois.jpg" alt="François Naturelle" style="object-position: center top;" />
+      <div class="photo contain" aria-label="François">
+        <img src="/photos/francois.jpg" alt="François Naturelle" />
         <div class="overlay"><span>François · Basse</span></div>
       </div>
 
@@ -72,6 +72,8 @@ section { padding: var(--section-v) 0; }
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .photo:hover img { transform: scale(1.04); }
+.photo.contain { background: #0a0a08; }
+.photo.contain img { object-fit: contain; }
 
 /* Hauteurs variées pour l'effet masonry */
 .photo          { height: 220px; }
