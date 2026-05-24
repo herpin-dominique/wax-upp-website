@@ -1,7 +1,32 @@
-<!--
-  Galerie photo — remplace les dégradés CSS par tes vraies photos :
-  <img src="/photos/ma-photo.jpg" alt="..." />  dans chaque .photo
--->
+<script>
+  const photos = [
+    { src: '/photos/groupe-2025.jpg',            alt: 'WAX UPP groupe 2025',  caption: 'WAX UPP · 2025'      },
+    { src: '/photos/heloise.jpg',                alt: 'Héloïse Tanboul',      caption: 'Héloïse · Chant'     },
+    { src: '/photos/scene.jpg',                  alt: 'WAX UPP sur scène',    caption: 'Sur scène'            },
+    { src: '/photos/concert-1.jpg',              alt: 'WAX UPP en concert',   caption: 'En concert'           },
+    { src: '/photos/heloise2.jpg',               alt: 'Héloïse Tanboul',      caption: 'Héloïse · Chant'     },
+    { src: '/photos/francois.jpg',               alt: 'François · Basse',     caption: 'François · Basse'    },
+    { src: '/photos/portrait.jpg',               alt: 'WAX UPP portrait',     caption: 'Le groupe'            },
+    { src: '/photos/concert-2.jpg',              alt: 'WAX UPP sur scène',    caption: 'Sur scène'            },
+    { src: '/photos/20250321_155540000_iOS.jpg', alt: 'WAX UPP coulisses',    caption: 'Coulisses'            },
+  ];
+
+  let selected = null;
+
+  function open(i)  { selected = i; }
+  function close()  { selected = null; }
+  function prev()   { selected = (selected - 1 + photos.length) % photos.length; }
+  function next()   { selected = (selected + 1) % photos.length; }
+
+  function onKeydown(e) {
+    if (selected === null) return;
+    if (e.key === 'Escape')      close();
+    if (e.key === 'ArrowLeft')   prev();
+    if (e.key === 'ArrowRight')  next();
+  }
+</script>
+
+<svelte:window on:keydown={onKeydown} />
 
 <section id="galerie">
   <div class="container">
@@ -10,182 +35,164 @@
     <h2 class="section-title">GALERIE</h2>
 
     <div class="grid">
-
-      <div class="photo" aria-label="WAX UPP 2025">
-        <img src="/photos/groupe-2025.jpg" alt="WAX UPP groupe 2025" style="object-position: center 70%;" />
-        <div class="overlay"><span>WAX UPP · 2025</span></div>
-      </div>
-
-      <div class="photo tall" aria-label="Héloïse">
-        <img src="/photos/heloise.jpg" alt="Héloïse Tanboul" style="object-position: center 15%;" />
-        <div class="overlay"><span>Héloïse · Chant</span></div>
-      </div>
-
-      <div class="photo" aria-label="Scène">
-        <img src="/photos/scene.jpg" alt="WAX UPP sur scène" />
-        <div class="overlay"><span>Sur scène</span></div>
-      </div>
-
-      <div class="photo contain" aria-label="Concert 1">
-        <img src="/photos/concert-1.jpg" alt="WAX UPP en concert" />
-        <div class="overlay"><span>En concert</span></div>
-      </div>
-
-      <div class="photo tall" aria-label="Héloïse 2">
-        <img src="/photos/heloise2.jpg" alt="Héloïse Tanboul" style="object-position: center top;" />
-        <div class="overlay"><span>Héloïse · Chant</span></div>
-      </div>
-
-      <div class="photo contain" aria-label="François">
-        <img src="/photos/francois.jpg" alt="François Naturelle" />
-        <div class="overlay"><span>François · Basse</span></div>
-      </div>
-
-      <div class="photo tall" aria-label="Portrait">
-        <img src="/photos/portrait.jpg" alt="WAX UPP portrait" style="object-position: center top;" />
-        <div class="overlay"><span>Le groupe</span></div>
-      </div>
-
-      <div class="photo" aria-label="Concert 2">
-        <img src="/photos/concert-2.jpg" alt="WAX UPP sur scène" style="object-position: center top;" />
-        <div class="overlay"><span>Sur scène</span></div>
-      </div>
-
-      <div class="photo" aria-label="Coulisses">
-        <img src="/photos/20250321_155540000_iOS.jpg" alt="WAX UPP coulisses" />
-        <div class="overlay"><span>Coulisses</span></div>
-      </div>
-
+      {#each photos as photo, i}
+        <button class="thumb" on:click={() => open(i)} aria-label={photo.caption}>
+          <img src={photo.src} alt={photo.alt} />
+          <div class="overlay"><span>{photo.caption}</span></div>
+        </button>
+      {/each}
     </div>
 
   </div>
 </section>
 
+{#if selected !== null}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div class="lightbox" on:click={close} role="dialog" aria-modal="true">
+
+    <button class="lb-close" on:click={close} aria-label="Fermer">✕</button>
+
+    <button class="lb-prev" on:click|stopPropagation={prev} aria-label="Précédent">‹</button>
+
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="lb-content" on:click|stopPropagation role="presentation">
+      <img src={photos[selected].src} alt={photos[selected].alt} class="lb-img" />
+      <p class="lb-caption">{photos[selected].caption}</p>
+    </div>
+
+    <button class="lb-next" on:click|stopPropagation={next} aria-label="Suivant">›</button>
+
+  </div>
+{/if}
+
 <style>
 section { padding: var(--section-v) 0; }
 
-/* ── Masonry grid CSS columns ── */
+/* ── Grille vignettes ── */
 .grid {
-  columns: 3;
-  column-gap: 6px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
 }
 
-.photo {
-  break-inside: avoid;
-  margin-bottom: 6px;
+.thumb {
   position: relative;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   cursor: pointer;
   background: var(--bg-card);
+  border: none;
+  padding: 0;
+  display: block;
+  width: 100%;
 }
-.photo img {
+.thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   display: block;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.photo:hover img { transform: scale(1.04); }
-.photo.contain { background: #0a0a08; }
-.photo.contain img { object-fit: contain; }
+.thumb:hover img { transform: scale(1.06); }
 
-/* Hauteurs variées pour l'effet masonry */
-.photo          { height: 220px; }
-.photo.tall     { height: 360px; }
-.photo.wide     { height: 200px; }
-
-/* ── Overlay hover ── */
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10,10,8,0.7);
+  background: rgba(10,10,8,0.55);
   display: flex;
   align-items: flex-end;
-  padding: 16px;
+  padding: 14px;
   opacity: 0;
   transition: opacity 0.3s;
 }
-.photo:hover .overlay { opacity: 1; }
+.thumb:hover .overlay { opacity: 1; }
 .overlay span {
   font-family: var(--f-mono);
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cream);
+  color: #fff;
 }
 
-/* ── Photos CSS — lumières de scène ── */
-/* Remplace ces backgrounds par tes vraies images :
-   background-image: url('/photos/concert-1.jpg');
-   background-size: cover;
-   background-position: center;
-*/
-
-.p1 {
-  background:
-    radial-gradient(ellipse at 30% 80%, rgba(255,77,0,0.85) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(240,192,64,0.55) 0%, transparent 45%),
-    #080808;
-}
-.p2 {
-  background:
-    radial-gradient(ellipse at 50% 95%, rgba(107,63,160,0.9) 0%, transparent 55%),
-    radial-gradient(ellipse at 20% 10%, rgba(255,77,0,0.15) 0%, transparent 40%),
-    #060608;
-}
-.p3 {
-  background:
-    radial-gradient(ellipse at 70% 60%, rgba(240,192,64,0.7) 0%, transparent 45%),
-    radial-gradient(ellipse at 20% 30%, rgba(255,77,0,0.4) 0%, transparent 40%),
-    #090907;
-}
-.p4 {
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(255,77,0,0.7) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 50%, rgba(240,192,64,0.2) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 50%, rgba(107,63,160,0.7) 0%, transparent 40%),
-    #060606;
-}
-.p5 {
-  background:
-    radial-gradient(ellipse at 40% 40%, rgba(26,154,106,0.6) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 70%, rgba(107,63,160,0.5) 0%, transparent 40%),
-    #040a08;
-}
-.p6 {
-  background:
-    radial-gradient(ellipse at 50% 20%, rgba(240,192,64,0.8) 0%, transparent 50%),
-    radial-gradient(ellipse at 30% 80%, rgba(255,77,0,0.45) 0%, transparent 40%),
-    #0a0804;
-}
-.p7 {
-  background:
-    radial-gradient(ellipse at 60% 70%, rgba(200,48,96,0.8) 0%, transparent 55%),
-    radial-gradient(ellipse at 30% 20%, rgba(107,63,160,0.4) 0%, transparent 40%),
-    #080408;
-}
-.p8 {
-  background:
-    radial-gradient(ellipse at 50% 50%, rgba(255,77,0,0.3) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(240,192,64,0.4) 0%, transparent 40%),
-    #0a0a08;
-}
-.p9 {
-  background:
-    radial-gradient(ellipse at 30% 30%, rgba(26,154,106,0.5) 0%, transparent 45%),
-    radial-gradient(ellipse at 75% 70%, rgba(240,192,64,0.55) 0%, transparent 45%),
-    #040808;
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(10, 10, 8, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
 }
 
+.lb-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: calc(100vw - 160px);
+  max-height: 90vh;
+}
 
-/* Responsive */
+.lb-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.6);
+}
+
+.lb-caption {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+.lb-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  font-size: 22px;
+  color: rgba(255,255,255,0.7);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.lb-close:hover { color: #fff; }
+
+.lb-prev,
+.lb-next {
+  font-family: var(--f-display);
+  font-size: 56px;
+  color: rgba(255,255,255,0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 12px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.2s;
+  user-select: none;
+}
+.lb-prev:hover,
+.lb-next:hover { color: var(--orange); }
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .grid { columns: 2; }
-  .photo.wide { height: 180px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .lb-content { max-width: calc(100vw - 100px); }
+  .lb-prev, .lb-next { font-size: 40px; padding: 0 6px; }
 }
 @media (max-width: 480px) {
-  .grid { columns: 1; }
-  .photo, .photo.tall, .photo.wide { height: 220px; }
+  .grid { grid-template-columns: 1fr; }
+  .lb-content { max-width: 100vw; }
+  .lb-prev, .lb-next { display: none; }
 }
 </style>
