@@ -12,7 +12,7 @@
     <div class="grid">
 
       <div class="photo" aria-label="WAX UPP 2025">
-        <img src="/photos/groupe-2025.jpg" alt="WAX UPP groupe 2025" style="object-position: center top;" />
+        <img src="/photos/groupe-2025.jpg" alt="WAX UPP groupe 2025" style="object-position: center 70%;" />
         <div class="overlay"><span>WAX UPP · 2025</span></div>
       </div>
 
