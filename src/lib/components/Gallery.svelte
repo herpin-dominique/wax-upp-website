@@ -12,32 +12,32 @@
     <div class="grid">
 
       <div class="photo" aria-label="WAX UPP 2025">
-        <img src="/photos/groupe-2025.jpg" alt="WAX UPP groupe 2025" />
+        <img src="/photos/groupe-2025.jpg" alt="WAX UPP groupe 2025" style="object-position: center top;" />
         <div class="overlay"><span>WAX UPP · 2025</span></div>
       </div>
 
       <div class="photo tall" aria-label="Héloïse">
-        <img src="/photos/heloise.jpg" alt="Héloïse Tanboul" />
+        <img src="/photos/heloise.jpg" alt="Héloïse Tanboul" style="object-position: center 15%;" />
         <div class="overlay"><span>Héloïse · Chant</span></div>
       </div>
 
       <div class="photo" aria-label="Concert 1">
-        <img src="/photos/concert-1.jpg" alt="WAX UPP en concert" />
+        <img src="/photos/concert-1.jpg" alt="WAX UPP en concert" style="object-position: center top;" />
         <div class="overlay"><span>En concert</span></div>
       </div>
 
       <div class="photo" aria-label="François">
-        <img src="/photos/francois.jpg" alt="François Naturelle" />
+        <img src="/photos/francois.jpg" alt="François Naturelle" style="object-position: center top;" />
         <div class="overlay"><span>François · Basse</span></div>
       </div>
 
       <div class="photo tall" aria-label="Portrait">
-        <img src="/photos/portrait.jpg" alt="WAX UPP portrait" />
+        <img src="/photos/portrait.jpg" alt="WAX UPP portrait" style="object-position: center top;" />
         <div class="overlay"><span>Le groupe</span></div>
       </div>
 
       <div class="photo" aria-label="Concert 2">
-        <img src="/photos/concert-2.jpg" alt="WAX UPP sur scène" />
+        <img src="/photos/concert-2.jpg" alt="WAX UPP sur scène" style="object-position: center top;" />
         <div class="overlay"><span>Sur scène</span></div>
       </div>
 
