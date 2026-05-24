@@ -90,6 +90,7 @@ export const merch = [
     description: 'Wax Upp — édition numérotée, livret inclus',
     price:       10,
     badge:       'LIMITÉ',
+    image:       '/photos/cd-wax-upp.png',
   },
   {
     id:          3,
