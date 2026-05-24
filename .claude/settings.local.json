@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem static *)",
+      "Bash(Select-Object FullName)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
