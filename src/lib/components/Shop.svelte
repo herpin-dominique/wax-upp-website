@@ -20,8 +20,15 @@
 
           <!-- Visuel produit -->
           <div class="visual">
-            {#if item.id === 1}
-              <TshirtMockup color="#1A1714" />
+            {#if item.video}
+              <video
+                src={item.video}
+                autoplay
+                muted
+                loop
+                playsinline
+                class="product-video"
+              ></video>
             {:else if item.id === 3}
               <ToteBagMockup />
             {:else if item.id === 4}
@@ -102,6 +109,12 @@ section {
   justify-content: center;
   position: relative;
   border-bottom: 1px solid var(--border);
+}
+.product-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Demi-cercle décoratif façon étiquette vinyle */

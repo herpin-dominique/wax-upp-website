@@ -12,7 +12,8 @@
       "PowerShell(npm install -g vercel)",
       "Bash(Get-Content \"C:\\\\Users\\\\dherp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-dherp-wax-upp-website\\\\818f65f3-f74e-42ab-a925-305cf2140ed9\\\\tasks\\\\bpg7o9x5z.output\" -Wait)",
       "Bash(Select-String -Pattern \"added|error|ERR\" --line-buffered)",
-      "PowerShell(npm config set strict-ssl false)"
+      "PowerShell(npm config set strict-ssl false)",
+      "PowerShell(if \\(-not $?\\) { \"Dossier videos introuvable\" })"
     ],
     "additionalDirectories": [
       "c:\\Users\\dherp\\wax-upp-website"

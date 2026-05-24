@@ -70,10 +70,19 @@ export const social = {
 export const merch = [
   {
     id:          1,
-    name:        'T-Shirt Wax Upp',
+    name:        'T-Shirt Homme',
     description: 'Logo sérigraphié, coton bio 180g',
     price:       10,
     badge:       null,
+    video:       '/videos/tshirt-homme.mp4',
+  },
+  {
+    id:          7,
+    name:        'T-Shirt Femme',
+    description: 'Logo sérigraphié, coton bio 180g, coupe féminine',
+    price:       10,
+    badge:       null,
+    video:       '/videos/tshirt-femme.mp4',
   },
   {
     id:          2,
