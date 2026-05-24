@@ -105,7 +105,7 @@ export const merch = [
     description: 'Broderie logo, réglable, snapback',
     price:       15,
     badge:       'NOUVEAU',
-    image:       '/photos/young-man-baseball-cap.jpg',
+    image:       '/photos/young-man-baseball-cap.jpeg',
   },
   {
     id:          5,
