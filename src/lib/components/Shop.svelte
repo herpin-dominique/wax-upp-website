@@ -21,6 +21,20 @@
               <video autoplay muted loop playsinline class="product-video">
                 <source src={item.video} type="video/mp4" />
               </video>
+            {:else if item.collage}
+              <div class="collage">
+                {#each item.collage as panel, i}
+                  <div class="collage-cell" class:main={i === 0}>
+                    {#if panel.type === 'video'}
+                      <video autoplay muted loop playsinline>
+                        <source src={panel.src} type="video/mp4" />
+                      </video>
+                    {:else}
+                      <img src={panel.src} alt="" />
+                    {/if}
+                  </div>
+                {/each}
+              </div>
             {:else if item.image}
               <img src={item.image} alt={item.name} class="product-photo" />
             {:else}
@@ -107,6 +121,31 @@ section {
   display: block;
 }
 .product-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Collage mosaïque */
+.collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 58% 42%;
+  width: 100%;
+  height: 100%;
+  gap: 2px;
+  background: var(--border);
+}
+.collage-cell {
+  overflow: hidden;
+  position: relative;
+}
+.collage-cell.main {
+  grid-column: 1 / -1;
+}
+.collage-cell video,
+.collage-cell img {
   width: 100%;
   height: 100%;
   object-fit: cover;

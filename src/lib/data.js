@@ -114,6 +114,11 @@ export const merch = [
     description: 'T-shirt + CD édition limitée + sticker pack',
     price:       25,
     badge:       'OFFRE',
+    collage: [
+      { type: 'video', src: '/videos/tshirt-homme.mp4' },
+      { type: 'image', src: '/photos/cd-wax-upp.png' },
+      { type: 'image', src: '/photos/set-of-5-sticker-designs-featuring-the-wax-upp-log.jpeg' },
+    ],
   },
   {
     id:          6,
