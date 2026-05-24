@@ -55,7 +55,7 @@ export const releases = [
 export const members = [
   { name: 'Héloïse Tanboul',    role: 'Chant',    color: '#D40000', initials: 'HT', bio: 'Une voix qui prend la salle à la gorge dès le premier couplet. Entre soul brûlante et énergie punk, Héloïse ne chante pas — elle convainc.' },
   { name: 'Dominique Tamaire',  role: 'Guitare',  color: '#8B4FE8', initials: 'DT', bio: `Riffs ciselés, solos qui durent juste ce qu'il faut. Dominique a le don de trouver la note qui fait tout basculer.` },
-  { name: 'Christophe Deprix', role: 'Guitare',  color: '#1a9a6a', initials: 'CD', bio: `L'autre guitare, et pas la moindre. Christophe tisse les harmonies et les textures qui donnent au son de Wax Upp sa profondeur.` },
+  { name: 'Fanssif', role: 'Guitare',  color: '#1a9a6a', initials: 'FA', bio: `L'autre guitare, et pas la moindre. Fanssif tisse les harmonies et les textures qui donnent au son de Wax Upp sa profondeur.` },
   { name: 'François Naturelle', role: 'Basse',    color: '#C87820', initials: 'FN', bio: `Le socle sur lequel tout repose. Sa basse est à la fois fondation et conversation — on l'entend autant qu'on la ressent.` },
   { name: 'Alain Stin',         role: 'Batterie', color: '#C83060', initials: 'AS', bio: 'Pocket béton, groove infaillible. Alain ne joue pas derrière le groupe — il le propulse.' },
 ];
