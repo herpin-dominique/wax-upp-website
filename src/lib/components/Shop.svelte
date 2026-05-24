@@ -29,10 +29,8 @@
                 playsinline
                 class="product-video"
               ></video>
-            {:else if item.id === 3}
-              <ToteBagMockup />
-            {:else if item.id === 4}
-              <CasquetteMockup />
+            {:else if item.image}
+              <img src={item.image} alt={item.name} class="product-photo" />
             {:else}
               <div class="vinyl-deco" aria-hidden="true">
                 <img src="/WAXUPP.jpg" alt="" class="deco-logo" />
@@ -111,6 +109,12 @@ section {
   border-bottom: 1px solid var(--border);
 }
 .product-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.product-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;

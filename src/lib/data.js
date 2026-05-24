@@ -97,6 +97,7 @@ export const merch = [
     description: 'Coton naturel, impression recto-verso',
     price:       10,
     badge:       null,
+    video:       '/videos/tote-bag.mp4',
   },
   {
     id:          4,
@@ -104,6 +105,7 @@ export const merch = [
     description: 'Broderie logo, réglable, snapback',
     price:       15,
     badge:       'NOUVEAU',
+    image:       '/photos/young-man-baseball-cap.jpg',
   },
   {
     id:          5,
