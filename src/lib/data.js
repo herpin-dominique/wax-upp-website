@@ -120,6 +120,7 @@ export const merch = [
     description: '6 stickers vinyle, imperméables',
     price:       5,
     badge:       null,
+    image:       '/photos/set-of-5-sticker-designs-featuring-the-wax-upp-log.jpeg',
   },
 ];
 
