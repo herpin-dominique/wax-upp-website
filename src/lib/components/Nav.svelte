@@ -80,7 +80,7 @@ nav.scrolled {
   Résultat : fond blanc → noir (fond du site), rouge reste rouge, texte noir → blanc
 */
 .logo-img {
-  height: 52px;
+  height: 80px;
   width: auto;
   mix-blend-mode: multiply;
   transition: opacity 0.2s;
@@ -88,7 +88,7 @@ nav.scrolled {
 .logo:hover .logo-img { opacity: 0.85; }
 
 /* Taille réduite quand la nav est scrollée */
-nav.scrolled .logo-img { height: 40px; }
+nav.scrolled .logo-img { height: 60px; }
 
 /* Links */
 .links {
