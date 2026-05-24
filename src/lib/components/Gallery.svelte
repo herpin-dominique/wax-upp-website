@@ -21,9 +21,19 @@
         <div class="overlay"><span>Héloïse · Chant</span></div>
       </div>
 
+      <div class="photo" aria-label="Scène">
+        <img src="/photos/scene.jpg" alt="WAX UPP sur scène" />
+        <div class="overlay"><span>Sur scène</span></div>
+      </div>
+
       <div class="photo contain" aria-label="Concert 1">
         <img src="/photos/concert-1.jpg" alt="WAX UPP en concert" />
         <div class="overlay"><span>En concert</span></div>
+      </div>
+
+      <div class="photo tall" aria-label="Héloïse 2">
+        <img src="/photos/heloise2.jpg" alt="Héloïse Tanboul" style="object-position: center top;" />
+        <div class="overlay"><span>Héloïse · Chant</span></div>
       </div>
 
       <div class="photo contain" aria-label="François">
@@ -39,6 +49,11 @@
       <div class="photo" aria-label="Concert 2">
         <img src="/photos/concert-2.jpg" alt="WAX UPP sur scène" style="object-position: center top;" />
         <div class="overlay"><span>Sur scène</span></div>
+      </div>
+
+      <div class="photo" aria-label="Coulisses">
+        <img src="/photos/20250321_155540000_iOS.jpg" alt="WAX UPP coulisses" />
+        <div class="overlay"><span>Coulisses</span></div>
       </div>
 
     </div>
