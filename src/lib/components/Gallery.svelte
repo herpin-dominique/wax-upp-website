@@ -11,43 +11,34 @@
 
     <div class="grid">
 
-      <!-- Chaque .photo est un placeholder CSS qui simule une photo de concert.
-           Remplace le style inline par une vraie image quand tu en auras. -->
-
-      <div class="photo p1" aria-label="Concert Paris 2025">
-        <div class="overlay"><span>Paris · 2025</span></div>
+      <div class="photo" aria-label="WAX UPP 2025">
+        <img src="/photos/groupe-2025.jpg" alt="WAX UPP groupe 2025" />
+        <div class="overlay"><span>WAX UPP · 2025</span></div>
       </div>
 
-      <div class="photo p2 tall" aria-label="Backstage Lyon">
-        <div class="overlay"><span>Lyon · 2024</span></div>
+      <div class="photo tall" aria-label="Héloïse">
+        <img src="/photos/heloise.jpg" alt="Héloïse Tanboul" />
+        <div class="overlay"><span>Héloïse · Chant</span></div>
       </div>
 
-      <div class="photo p3" aria-label="Festival Toulouse">
-        <div class="overlay"><span>Toulouse · 2024</span></div>
+      <div class="photo" aria-label="Concert 1">
+        <img src="/photos/concert-1.jpg" alt="WAX UPP en concert" />
+        <div class="overlay"><span>En concert</span></div>
       </div>
 
-      <div class="photo p4 wide" aria-label="Scène Olympia">
-        <div class="overlay"><span>L'Olympia · 2024</span></div>
+      <div class="photo" aria-label="François">
+        <img src="/photos/francois.jpg" alt="François Naturelle" />
+        <div class="overlay"><span>François · Basse</span></div>
       </div>
 
-      <div class="photo p5" aria-label="Studio">
-        <div class="overlay"><span>Studio · 2024</span></div>
+      <div class="photo tall" aria-label="Portrait">
+        <img src="/photos/portrait.jpg" alt="WAX UPP portrait" />
+        <div class="overlay"><span>Le groupe</span></div>
       </div>
 
-      <div class="photo p6" aria-label="Francofolies">
-        <div class="overlay"><span>Francofolies · 2025</span></div>
-      </div>
-
-      <div class="photo p7 tall" aria-label="Répétition">
-        <div class="overlay"><span>Répétition · 2025</span></div>
-      </div>
-
-      <div class="photo p8" aria-label="After-show">
-        <div class="overlay"><span>After-show · 2024</span></div>
-      </div>
-
-      <div class="photo p9" aria-label="Garorock">
-        <div class="overlay"><span>Garorock · 2025</span></div>
+      <div class="photo" aria-label="Concert 2">
+        <img src="/photos/concert-2.jpg" alt="WAX UPP sur scène" />
+        <div class="overlay"><span>Sur scène</span></div>
       </div>
 
     </div>
@@ -70,7 +61,17 @@ section { padding: var(--section-v) 0; }
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  background: var(--bg-card);
 }
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.photo:hover img { transform: scale(1.04); }
 
 /* Hauteurs variées pour l'effet masonry */
 .photo          { height: 220px; }
@@ -160,15 +161,6 @@ section { padding: var(--section-v) 0; }
     #040808;
 }
 
-/* ── Effet zoom-in subtil au hover ── */
-.photo::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.photo:hover::before { transform: scale(1.04); }
 
 /* Responsive */
 @media (max-width: 768px) {
