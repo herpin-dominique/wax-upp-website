@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\dherp\\\\wax-upp-website\" -Recurse -Include *.png, *.jpg, *.jpeg, *.svg, *.webp, *.gif -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "WebSearch",
+      "WebFetch(domain:www.sonotheque-normandie.com)",
+      "WebFetch(domain:www.francebleu.fr)",
+      "WebFetch(domain:www.ici.fr)",
+      "PowerShell(npm install -g vercel 2>&1)",
+      "PowerShell(tail -5)",
+      "PowerShell(npm install -g vercel)",
+      "Bash(Get-Content \"C:\\\\Users\\\\dherp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-dherp-wax-upp-website\\\\818f65f3-f74e-42ab-a925-305cf2140ed9\\\\tasks\\\\bpg7o9x5z.output\" -Wait)",
+      "Bash(Select-String -Pattern \"added|error|ERR\" --line-buffered)",
+      "PowerShell(npm config set strict-ssl false)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\dherp\\wax-upp-website"
+    ]
+  }
+}
