@@ -36,7 +36,7 @@
                 {/each}
               </div>
             {:else if item.image}
-              <img src={item.image} alt={item.name} class="product-photo" />
+              <img src={item.image} alt={item.name} class="product-photo" class:contain={item.imageContain} />
             {:else}
               <div class="vinyl-deco" aria-hidden="true">
                 <img src="/WAXUPP.jpg" alt="" class="deco-logo" />
@@ -125,6 +125,10 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.product-photo.contain {
+  object-fit: contain;
+  padding: 12px;
 }
 
 /* Collage mosaïque */
